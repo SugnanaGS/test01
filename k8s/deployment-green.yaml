@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo01-green
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: demo01-green
+  template:
+    metadata:
+      labels:
+        app: demo01-green
+    spec:
+      containers:
+        - name: demo01-container
+          image: sugnana/demo01:2.0.0
+          ports:
+            - containerPort: 8080
